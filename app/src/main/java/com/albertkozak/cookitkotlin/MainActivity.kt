@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_recipe.view.*
 
@@ -41,8 +42,8 @@ private class RecipeAdapter(val recipes: List<Recipe>, val context: Context): Re
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         val recipe = recipes[position]
-
         holder.itemView.item_recipe_name.text = recipe.name
+        Glide.with(context).load(recipe.imageURL).into(holder.itemView.item_recipe_image)
     }
 
 }
